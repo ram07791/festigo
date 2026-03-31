@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/overview.css') }}">
+    <section class="about-section">
+    <div class="container">
+        <h1 class="about-title">About Us</h1>
+        <p class="about-subtitle">Know our great story</p>
+        <div class="about-features">
+            <div class="feature">
+                <i class="fa-solid fa-users"></i>
+                <h3>Our Community</h3>
+                <p>
+                            Festigo empowers users and organizers with a modern platform for event 
+                            discovery, planning, and management — creating memorable experiences 
+                            for everyone.
+                </p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>All-in-One Event Platform</h3>
+                <p>
+                    Festigo is an all-in-one platform that empowers users and organizers to 
+                    connect, plan, and experience events effortlessly, delivering a seamless 
+                    and engaging digital experience.
+                </p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Driven by Innovation</h3>
+                <p>
+                    At Festigo, we combine modern technology with user-focused design to 
+                    create a powerful platform for event discovery and management, ensuring 
+                    a smooth and engaging experience for everyone.
+                </p>
+            </div>
+        </div>
+        <div class="about-lower">
+            <div class="about-text">
+            <h2>ABOUT US</h2>
+            <p>
+                Festigo simplifies event planning and discovery by connecting 
+                users with exciting events, seamless booking, and easy management 
+                — all in one place.
+            </p>
+            </div>
+            <div class="skills">
+                <div class="skill">
+                    <p>Design</p>
+                    <div class="progress-bar">
+                    <div class="progress design">60%</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p>Idea</p>
+                    <div class="progress-bar">
+                    <div class="progress idea">80%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock %}

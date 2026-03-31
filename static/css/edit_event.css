@@ -1,0 +1,191 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===== BODY BACKGROUND ===== */
+
+body{
+min-height:100vh;
+background:url("../images/editbg.jpeg") no-repeat center center/cover;
+position:relative;
+}
+
+/* FULL PAGE GLASS OVERLAY */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(6px);
+z-index:0;
+}
+
+/* ===== HEADER ===== */
+
+.navbar{
+width:100%;
+padding:18px 60px;
+background:rgba(143,190,199,0.85);
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.nav-links a{
+text-decoration:none;
+margin-left:25px;
+color:black;
+font-size:16px;
+}
+
+/* ===== PAGE TITLE ===== */
+
+.page-title{
+width:fit-content;
+margin:40px auto;
+background:rgba(143,190,199,0.85);
+padding:15px 40px;
+border-radius:10px;
+font-size:24px;
+font-weight:bold;
+color:white;
+position:relative;
+z-index:2;
+}
+
+/* ===== GLASS FORM CONTAINER ===== */
+
+.form-container{
+width:650px;
+margin:30px auto;
+padding:40px;
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.35);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.35);
+
+position:relative;
+z-index:2;
+}
+
+/* ===== FORM GROUP ===== */
+
+.form-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:6px;
+font-weight:bold;
+color:white;
+}
+
+/* INPUTS */
+
+input, textarea{
+width:100%;
+padding:10px;
+border:1px solid rgba(255,255,255,0.5);
+border-radius:6px;
+font-size:14px;
+background:rgba(255,255,255,0.2);
+color:white;
+outline:none;
+}
+
+textarea{
+resize:none;
+height:90px;
+}
+
+/* BUTTON */
+
+.update-btn{
+width:100%;
+padding:12px;
+border:none;
+background:#8fbec7;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.update-btn:hover{
+background:#6fa9b4;
+}
+
+/* ===== DELETE EVENT BOX ===== */
+
+.delete-container{
+
+width:650px;
+margin:40px auto;
+padding:30px;
+
+background:rgba(255,80,80,0.15);
+backdrop-filter:blur(15px);
+
+border-radius:16px;
+border:1px solid rgba(255,100,100,0.4);
+
+box-shadow:0 10px 35px rgba(0,0,0,0.35);
+
+text-align:center;
+
+position:relative;
+z-index:2;
+}
+
+/* TITLE */
+
+.delete-container h3{
+color:#ff6b6b;
+margin-bottom:10px;
+}
+
+/* WARNING TEXT */
+
+.delete-warning{
+color:#ffdcdc;
+font-size:14px;
+margin-bottom:20px;
+}
+
+/* DELETE BUTTON */
+
+.delete-btn{
+padding:12px 30px;
+background:#e03131;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.delete-btn:hover{
+background:#b30000;
+}

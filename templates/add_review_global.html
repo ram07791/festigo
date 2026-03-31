@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_review.css') }}">
+
+<div class="review-wrapper">
+
+    <div class="review-card">
+
+        <h2>Add Review</h2>
+
+        <form method="POST">
+
+            <!-- EVENT SELECT -->
+            <select name="event_id" required style="width:100%; padding:10px; border-radius:10px; margin-bottom:15px;">
+                <option value="">Select Event</option>
+                {% for event in events %}
+                    <option value="{{ event.event_id }}">{{ event.event_title }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- REVIEW -->
+            <textarea name="review" placeholder="Write your experience..." required></textarea>
+
+            <!-- BUTTON -->
+            <button type="submit">Submit Review</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

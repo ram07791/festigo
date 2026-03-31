@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
+
+<div class="book-wrapper">
+
+    <div class="book-card">
+
+        <h2>Confirm Your Booking</h2>
+
+        <!-- EVENT DETAILS -->
+        <div class="event-info">
+            <p><strong>Event:</strong> {{ event.event_title }}</p>
+            <p><strong>Date:</strong> {{ event.event_date.strftime('%d %B %Y') }}</p>
+            <p><strong>Time:</strong> {{ event.event_date.strftime('%I:%M %p') }}</p>
+            <p><strong>Venue:</strong> {{ event.location }}</p>
+            <p><strong>Price:</strong> ${{ event.event_price }}</p>
+        </div>
+
+        <!-- FORM -->
+        <form method="POST">
+
+            <!-- TICKET COUNT -->
+            <div class="form-group">
+                <label>Number of Tickets:</label>
+                <select id="ticketCount" name="ticket_count" onchange="generateForms()" required>
+                    <option value="">Select</option>
+                    {% for i in range(1,8) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- DYNAMIC FORMS -->
+            <div id="ticketForms" class="ticket-grid"></div>
+
+            <button type="submit" class="confirm-btn">
+                Confirm Booking
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function generateForms() {
+    const count = document.getElementById("ticketCount").value;
+    const container = document.getElementById("ticketForms");
+
+    container.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        container.innerHTML += `
+            <div class="ticket-person">
+                <h4>Ticket ${i}</h4>
+
+                <label>Name:</label>
+                <input type="text" name="name_${i}" required>
+
+                <label>Email:</label>
+                <input type="email" name="email_${i}" required>
+
+                <label>Seat Type:</label>
+                <select name="seat_${i}" required>
+                    <option value="General">General</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Premium">Premium</option>
+                </select>
+            </div>
+        `;
+    }
+}
+</script>
+
+{% endblock %}

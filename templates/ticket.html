@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ticket.css') }}">
+
+<div class="ticket-container">
+
+    <!-- LEFT SIDE -->
+    <div class="ticket-left">
+
+        <!-- IMAGE -->
+<div class="image-section">
+    <img src="{{ url_for('static', filename='images/ticket.jpeg') }}" alt="Event Image">
+
+    <div class="image-overlay">
+        <h3 class="overlay-script">The</h3>
+        <h1 class="overlay-main">
+            {{ event.event_title }} 
+        </h1>
+    </div>
+</div>
+        <!-- WHITE STRIP -->
+        <div class="ticket-info">
+
+            <table class="ticket-table">
+
+                <tr>
+                    <td class="left-cell">{{ event.location }}</td>
+                    <td class="right-cell">{{ event.event_date.strftime('%d %B %Y') }}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <table class="inner-table">
+                            <tr>
+                                <td>
+                                    <small>PRICE</small><br>
+                                    <span>${{ event.event_price }}</span>
+                                </td>
+
+                                <td>
+                                    <small>ADMITS</small><br>
+                                    <span>{{ booking.total_tickets }}</span>
+                                </td>
+
+                                <td>
+                                    <small>START</small><br>
+                                    <span>{{ event.event_date.strftime('%H:%M') }}</span>
+                                </td>
+
+                                <td>
+                                    <small>SEAT</small><br>
+                                    <span>{{ registration.seat_type }}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="ticket-right">
+
+        <div class="section top">
+            <h2 class="right-title">{{ event.event_title }}</h2>
+            <div class="double-line"></div>
+        </div>
+
+        <div class="section small">
+            <div class="ticket-no">
+                <span class="label">TICKET NUMBER</span>
+                <span class="value">{{ registration.registration_id }}</span>
+            </div>
+            <div class="double-line"></div>
+        </div>
+
+        <div class="section small">
+            <div class="middle-section">
+                <p><b>SEAT:</b> {{ registration.seat_type }}</p>
+            </div>
+            <div class="double-line"></div>
+        </div>
+
+        <!-- QR CODE -->
+        <div class="section bottom">
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FestigoTicket" alt="QR Code">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ✅ GO HOME BUTTON -->
+<div class="home-btn-container">
+    <a href="{{ url_for('home') }}" class="home-btn">
+        ⬅ Go to Home
+    </a>
+</div>
+
+<!-- ✅ TERMS & CONDITIONS CARD -->
+<div class="terms-card">
+
+    <p class="terms-title">Terms & Conditions</p>
+
+    <ul>
+        <li>Ticket is non-refundable and non-transferable.</li>
+        <li>Please carry a valid ID proof at entry.</li>
+        <li>Entry closes 30 minutes before event start.</li>
+        <li>Organizer reserves the right to deny entry.</li>
+    </ul>
+
+</div>
+
+{% endblock %}

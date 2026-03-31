@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- LINK CSS FILE -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_events.css') }}">
+
+<div class="schedule-wrapper">
+<div class="container">
+
+<div class="heading-bar">
+<h2 class="heading">Manage your events</h2>
+<a href="{{ url_for('add_event') }}" class="add-btn top-btn">
++ Add Event
+</a>
+</div>
+
+<div class="event-grid">
+
+{% if events %}
+{% for event in events %}
+
+<div class="event-card">
+
+<div class="event-title">
+{{ event.event_title }}
+</div>
+
+<div class="event-content">
+
+<!-- LEFT DESCRIPTION -->
+<div class="event-desc">
+{{ event.event_description or "No description available" }}
+
+<div class="button-group">
+<a href="{{ url_for('book_event', event_id=event.event_id) }}" class="book-btn">
+Book Now
+</a>
+
+<a href="{{ url_for('edit_event', event_id=event.event_id) }}" class="edit-btn">
+Edit
+</a>
+</div>
+</div>
+
+<!-- RIGHT DETAILS -->
+<div class="event-details">
+<table class="details-table">
+
+<tr>
+<td><i>Venue :</i></td>
+<td>{{ event.location }}</td>
+</tr>
+
+<tr>
+<td><i>Date :</i></td>
+<td>{{ event.event_date.strftime('%b-%d-%Y') }}</td>
+</tr>
+
+<tr>
+<td><i>Time :</i></td>
+<td>{{ event.event_date.strftime('%I:%M %p') }}</td>
+</tr>
+
+<tr>
+<td><i>Organizer :</i></td>
+<td>{{ session['username'] }}</td>  <!-- FIXED -->
+</tr>
+
+<tr>
+<td><i>Seats :</i></td>
+<td>{{ event.event_seats }}</td>
+</tr>
+
+<tr>
+<td><i>Ticket :</i></td>
+<td>₹{{ event.event_price }}</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+</div>
+
+{% endfor %}
+
+{% else %}
+<h3 style="text-align:center; margin-top:20px;">
+You haven't created any events yet.
+</h3>
+{% endif %}
+
+</div>
+</div>
+</div>
+
+{% endblock %}

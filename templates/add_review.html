@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_review.css') }}">
+
+<div class="review-wrapper">
+
+    <div class="review-card">
+
+        <h2>Add Review for {{ event.event_title }}</h2>
+
+        <form method="POST">
+
+
+            <!-- REVIEW TEXT -->
+            <textarea name="review" placeholder="Write your experience..." required></textarea>
+
+            <!-- BUTTON -->
+            <button type="submit">Submit Review</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

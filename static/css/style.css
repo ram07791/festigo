@@ -1,0 +1,496 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#ffffff;
+}
+
+/* HEADER */
+.navbar{
+    position:fixed;                 /* makes header stay while scrolling */
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:#8ad8e8;             /* solid color (not transparent) */
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:black;
+    font-size:16px;
+}
+
+.nav-links a.active{
+    color:black;
+}
+
+/* HERO */
+.hero{
+position:relative;
+height:90vh;
+overflow:hidden;
+
+/* GAP AROUND IMAGE */
+margin-top:85px;      /* small gap below header */
+margin-left:15px;
+margin-right:15px;
+margin-bottom:15px;
+
+border-radius:8px;    /* optional smooth edge */
+}
+
+.hero-img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:8px;
+}
+
+/* IMAGE OVERLAY */
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.25);
+}
+
+/* CENTER CONTENT */
+.hero-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:2;
+}
+
+/* DATE */
+.date{
+    background:rgba(255,255,255,0.9);
+    padding:8px 25px;
+    display:inline-block;
+    font-style:italic;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+/* MAIN HERO BOX */
+.hero-box{
+    background:rgba(138, 216, 232, 0.75);
+    padding:35px 80px;
+    transform:skew(-12deg);
+    position:relative;
+}
+
+.hero-box::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:10%;
+    width:80%;
+    height:3px;
+    background:white;
+}
+
+.hero-box::after{
+    content:"";
+    position:absolute;
+    bottom:-12px;
+    left:10%;
+    width:80%;
+    height:3px;
+    background:white;
+}
+
+.hero-box h1{
+    transform:skew(12deg);
+    font-size:48px;
+    font-weight:700;
+    line-height:1.3;
+    letter-spacing:1px;
+    text-align:center;
+}
+
+/* CAPTION */
+.hero-caption{
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:8px 25px;
+    display:inline-block;
+    font-size:14px;
+}
+
+/* FEATURE ICONS */
+.feature i{
+    font-size:40px;
+    color:#555;
+    margin-bottom:20px;
+    display:block;
+}
+
+/* TEAM SECTION */
+.team-section{
+    background: url("../images/teambg.jpg") no-repeat center center/cover;
+    padding:80px 0;
+    text-align:center;
+    position:relative;
+}
+
+.team-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(8px);
+}
+
+.team-section .container{
+    position:relative;
+    z-index:1;
+}
+
+.team-title{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.team-subtitle{
+    color:#cec2c2;
+    margin-bottom:60px;
+}
+
+.team-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.team-card{
+    width:230px;
+    background:white;
+}
+
+.team-card img{
+    width:100%;
+}
+
+.team-name{
+    background:#a9d1da;
+    padding:10px;
+    font-weight:bold;
+}
+
+.team-skills{
+    background:#59a9b9;
+    color:white;
+    padding:15px;
+    line-height:1.8;
+}
+
+.team-social{
+    background:#a9d1da;
+    padding:10px;
+}
+
+.team-social i{
+    margin:0 6px;
+    font-size:18px;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    background:black;
+    color:white;
+    padding:100px 80px;
+}
+
+.contact-container{
+    display:flex;
+    justify-content:space-between;
+    gap:80px;
+}
+
+.contact-left{
+    width:45%;
+}
+
+.contact-left h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.contact-left h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.contact-left p{
+    line-height:1.8;
+    margin-bottom:15px;
+    color:#ddd;
+}
+
+
+.contact-right{
+    width:45%;
+}
+
+.contact-right h1{
+    margin-bottom:20px;
+}
+
+.contact-right form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact-right input,
+.contact-right textarea{
+    padding:15px;
+    background:#111;
+    border:1px solid #444;
+    color:white;
+    font-size:16px;
+}
+
+.contact-right textarea{
+    height:120px;
+    resize:none;
+}
+
+.contact-right button{
+    width:140px;
+    padding:12px;
+    border:none;
+    background:#dcdcdc;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* FOOTER SOCIAL SECTION */
+
+/* FOOTER SOCIAL SECTION */
+
+.footer-social{
+background:#444;
+color:white;
+text-align:center;
+padding:40px 20px;   /* reduced from 80px */
+}
+
+.footer-social h2{
+font-size:32px;      /* reduced title size */
+margin-bottom:25px;
+font-weight:normal;
+}
+
+.social-icons{
+display:flex;
+justify-content:center;
+gap:18px;
+}
+
+.social-icons i{
+width:45px;          /* reduced icon size */
+height:45px;
+border:2px solid #bbb;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+color:#bbb;
+transition:0.3s;
+}
+
+.social-icons i:hover{
+background:#8ad8e8;
+color:black;
+border-color:#8ad8e8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* FOOTER BOTTOM */
+
+.footer-bottom{
+background:#a9d1da;
+display:flex;
+justify-content:space-between;
+padding:15px 80px;
+font-size:14px;
+}
+
+/* ========================= */
+/* TESTIMONIAL SECTION */
+/* ========================= */
+
+/* ========================= */
+/* TESTIMONIAL SECTION */
+/* ========================= */
+
+.testimonial-section{
+    position: relative;
+    min-height: 100vh;
+    background: url("../images/testimonials.jpg") no-repeat center center/cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* DARK OVERLAY (NEW - improves clarity) */
+.testimonial-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.45);  /* dark overlay */
+}
+
+/* CONTENT */
+
+.testimonial-content{
+    position: relative;
+    z-index:2;
+    max-width:700px;
+    padding:40px;
+
+    /* FIXED GLASS EFFECT */
+    background: rgba(255,255,255,0.12);  /* slightly stronger */
+    border-radius:16px;
+
+    backdrop-filter: blur(4px);   /* 🔥 reduced blur (was 10px) */
+    border:1px solid rgba(255,255,255,0.25);
+}
+
+/* TITLE */
+
+.testimonial-title{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* SUBTITLE */
+
+.testimonial-subtitle{
+    font-size:18px;
+    margin-bottom:40px;
+    color:#eee;
+}
+
+/* IMAGE (MAIN FIX) */
+
+.testimonial-image img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:4px solid white;
+    margin-bottom:25px;
+
+    object-fit: cover;
+
+    /* 🔥 IMPORTANT FIX */
+    filter: none;
+    opacity: 1;
+    backdrop-filter: none;
+}
+
+/* TEXT */
+
+.testimonial-text{
+    font-size:16px;
+    line-height:1.8;
+    color:#ffffff;   /* 🔥 changed to white for visibility */
+    margin-bottom:25px;
+    font-style:italic;
+}
+
+/* NAME */
+
+.testimonial-name{
+    font-size:26px;
+    font-weight:bold;
+    color:white;
+}
+
+/* ROLE */
+
+.testimonial-role{
+    font-size:18px;
+    font-weight:bold;
+    color:#e0e0e0;
+}
+
+/* SLIDER */
+
+.testimonial-slider{
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+.testimonial-slide{
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.testimonial-slide.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+    font-weight:600;
+    color:white; /* change based on your navbar */
+}
+
+.logo img{
+    height:40px;
+    width:40px;
+    object-fit:cover;
+    border-radius:50%;   /* makes it fully round */
+}
+
+.logo span{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}

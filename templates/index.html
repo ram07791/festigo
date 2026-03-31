@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block hero %}
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="{{ url_for('static', filename='images/bg-slide-01.jpg') }}" class="hero-img">
+    <div class="hero-content">
+        <div class="hero-box">
+            <marquee behavior="scroll" direction="left" scrollamount="7.5">
+                <h1><i>ORGANIZING</i><br><i>WORLD CLASS</i><br><i>EVENTS</i></h1>
+            </marquee>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section id="team" class="team-section">
+    <div class="container">
+        <h1 class="team-title">Our Team</h1>
+        <p class="team-subtitle">Meet the greatest Team of Festigo</p>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/user1.jpeg') }}">
+                <div class="team-name">Vignesh, CEO</div>
+                <div class="team-skills">Strategic Leadership<br>Event Technology Solutions<br>Business Development<br>Client Experience</div>
+                <div class="team-social">
+                    <i class="fab fa-tumblr"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>    
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/user2.jpeg') }}">
+                <div class="team-name">Dattaram, Director</div>
+                <div class="team-skills">Operations & Logistics<br>Digital Marketing<br>Campaign Management<br>Brand Strategy</div>
+                <div class="team-social">
+                    <i class="fab fa-tumblr"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='images/user3.jpeg') }}">
+                <div class="team-name">Srihith, Event Planner</div>
+                <div class="team-skills">Event Execution<br>Audience Engagement<br>Creative Design<br>Experience Management</div>
+                <div class="team-social">
+                    <i class="fab fa-tumblr"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- TESTIMONIAL SECTION -->
+<section id="testimonials" class="testimonial-section">
+    <div class="testimonial-content">
+        <h1 class="testimonial-title">Testimonial</h1>
+        <p class="testimonial-subtitle">What they say and see among us</p>
+        <div class="testimonial-slider">
+            {% for t in testimonials %}
+            <div class="testimonial-slide {% if loop.first %}active{% endif %}">
+                <div class="testimonial-image">
+                    <img src="{{ url_for('static', filename=t.image) }}">
+                </div>
+                <p class="testimonial-text">
+                    {{ t.text }}
+                </p>
+                <h3 class="testimonial-name">{{ t.name }}</h3>
+                <span class="testimonial-role">{{ t.role }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+<div class="contact-container">
+    <div class="contact-left">
+        <h3>Hey !!!</h3>
+        <h1>More About me</h1>
+        <p>
+            Festigo is your all-in-one event management platform designed to make planning, 
+            organizing, and experiencing events effortless. From discovering exciting events 
+            to managing schedules and bookings, Festigo connects people with unforgettable 
+            experiences. Whether it's college fests, workshops, or celebrations, our platform 
+            helps you plan, create, and celebrate with ease.
+        </p>
+        <p>
+            Festigo Headquarters,<br>
+            Hyderabad, Telangana,<br>
+            India
+        </p>
+        <p>festigo@gmail.com</p>
+        <p>+91 9876543210</p>
+    </div>
+    <div class="contact-right">
+        <h1>Contact us</h1>
+        <form>
+            <input type="text" placeholder="Enter your name">
+            <input type="email" placeholder="Enter your email">
+            <textarea placeholder="Enter your message"></textarea>
+            <button type="submit">Let us know</button>
+        </form>
+    </div>
+</div>
+</section>
+
+<!-- FOOTER SOCIAL SECTION -->
+<section class="footer-social">
+    <h2>Find us on</h2>
+    <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-google-plus-g"></i>
+        <i class="fab fa-wordpress"></i>
+        </div>
+</section>
+
+<!-- FOOTER COPYRIGHT -->
+<footer class="footer-bottom">
+<div class="footer-left">© Copyright 2026 Festigo</div>
+<div class="footer-right">Designed and Developed by DSV</div>
+</footer>
+{% endblock %}

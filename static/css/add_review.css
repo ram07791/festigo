@@ -1,0 +1,166 @@
+/* ===== BACKGROUND WRAPPER ===== */
+.review-wrapper {
+    min-height: 100vh;
+    padding-top: 80px;
+
+    background: url("../images/blog1.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* smooth full screen effect */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+/* LIGHT OVERLAY (NO BLUR) */
+.review-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); /* slightly dark for readability */
+}
+
+/* ===== CARD ===== */
+.review-card {
+    position: relative;
+    z-index: 1;
+
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+
+    border-radius: 20px;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+    text-align: center;
+}
+
+/* HEADING */
+.review-card h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ===== GLASS TEXTAREA ===== */
+.review-card textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    outline: none;
+    resize: none;
+    font-size: 14px;
+
+    margin-top: 15px;
+
+    /* GLASS STYLE */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+
+    backdrop-filter: blur(6px);
+}
+
+/* PLACEHOLDER COLOR */
+.review-card textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* ===== BUTTON ===== */
+.review-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.review-card button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 75, 43, 0.5);
+}
+
+/* ===== STAR RATING ===== */
+.rating-box {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.stars {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+/* CUSTOM STAR LOOK */
+.stars input {
+    accent-color: gold;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* ===== GLASS DROPDOWN ===== */
+.review-card select {
+    width: 100%;
+    padding: 12px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    outline: none;
+    font-size: 14px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+
+    backdrop-filter: blur(6px);
+
+    appearance: none; /* remove default arrow */
+}
+
+/* OPTION STYLING (LIMITED SUPPORT) */
+.review-card select option {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* CUSTOM ARROW (OPTIONAL) */
+.review-card select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5H5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 500px) {
+    .review-card {
+        padding: 20px;
+    }
+
+    .review-card h2 {
+        font-size: 18px;
+    }
+}

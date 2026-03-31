@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+
+<div class="blog-wrapper">
+
+    <div class="container">
+
+        <!-- HEADING -->
+        <div class="heading-bar">
+
+            {% if event %}
+                <h2 class="heading">
+                    Reviews for {{ event.event_title }}
+                </h2>
+
+                <a href="{{ url_for('add_review', event_id=event.event_id) }}" class="add-btn">
+                    + Add Review
+                </a>
+
+            {% else %}
+                <h2 class="heading">
+                    Event Chronicles
+                </h2>
+
+                <!-- ✅ ADD BUTTON FOR BLOG PAGE -->
+                <a href="{{ url_for('add_review_global') }}" class="add-btn">
+                    + Add Review
+                </a>
+            {% endif %}
+
+        </div>
+
+        <!-- GRID LIST -->
+        <div class="review-grid">
+
+            {% for blog in blogs %}
+            <div class="review-card">
+
+                <!-- TOP CONTENT -->
+                <div class="review-content">
+
+                    <!-- TITLE + 3 DOT MENU -->
+                    <div class="title-row">
+                        <h3 class="event-title">
+                            {% if event %}
+                                {{ event.event_title }}
+                            {% else %}
+                                {{ event_map[blog.event_id] }}
+                            {% endif %}
+                        </h3>
+
+                        <!-- MENU -->
+                        <div class="menu">
+                            ⋮
+                            <div class="menu-dropdown">
+
+                                <!-- EDIT -->
+                                <a href="{{ url_for('edit_review', blog_id=blog.blog_id, next=request.path) }}">
+                                    Edit
+                                </a>
+
+                                <!-- DELETE -->
+                                <a href="{{ url_for('delete_review', blog_id=blog.blog_id, next=request.path) }}">
+                                    Delete
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="review-text">
+                        {{ blog.description }}
+                    </p>
+
+                </div>
+
+                <!-- USER (BOTTOM LEFT) -->
+                <div class="review-user">
+                    👤 User {{ blog.user_id }}
+                </div>
+
+            </div>
+
+            {% else %}
+            <p style="color:white;">No reviews available.</p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

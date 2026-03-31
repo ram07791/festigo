@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+</head>
+<body>
+<div class="login-wrapper">
+<div class="ticket register-ticket">
+<div class="ticket-header">
+<h1>Festigo</h1>
+</div>
+<div class="ticket-divider"></div>
+<div class="ticket-body">
+<h2>Register</h2>
+<form method="POST">
+<label>Username</label>
+<input type="text" name="username" required>
+<label>Email</label>
+<input type="email" name="email" required>
+<label>Password</label>
+<input type="password" name="password" required>
+<label>Confirm Password</label>
+<input type="password" name="confirm_password" required>
+<label>Select Role</label>
+<select name="role" required>
+<option value="" disabled selected>Select Role</option>
+<option value="user">User</option>
+<option value="organizer">Organizer</option>
+</select>
+<button type="submit">Register</button>
+</form>
+<p class="register-link">Already have an account? 
+<a href="/login" style="color:rgb(240, 90, 55);; text-decoration:underline; font-weight:400;">
+    Login here
+</a>
+</p>
+<!-- FLASH MESSAGE BELOW BUTTON -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<p class="flash-text flash-{{ category }}">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}

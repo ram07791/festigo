@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- LINK CSS FILE -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/schedule.css') }}">
+
+<div class="schedule-wrapper">
+    <div class="container">
+
+        <!-- HEADING -->
+        <div class="heading-bar">
+            <h2 class="heading">🎉 Explore Events</h2>
+        </div>
+
+        <!-- GRID -->
+        <div class="event-grid">
+
+            {% for event in events %}
+            <div class="event-card">
+
+                <!-- TITLE -->
+                <div class="event-title">
+                    {{ event.event_title }}
+                </div>
+
+                <div class="event-content">
+
+                    <!-- LEFT -->
+                    <div class="event-desc">
+                        <p>
+                            {{ event.event_description or "No description available" }}
+                        </p>
+
+                        <!-- BUTTONS -->
+                        <div class="book-btn-container">
+
+                            {% if event.event_date.date() < today %}
+                                <!-- PAST EVENT -->
+                                <button class="book-btn expired-btn" disabled>
+                                    Event Expired
+                                </button>
+                            {% else %}
+                                <!-- FUTURE EVENT -->
+                                <a href="{{ url_for('book_event', event_id=event.event_id) }}" class="book-btn">
+                                    Book Now
+                                </a>
+                            {% endif %}
+
+                            <a href="{{ url_for('view_reviews', event_id=event.event_id) }}" class="book-btn review-btn">
+                                Reviews
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="event-details">
+                        <table class="details-table">
+
+                            <tr>
+                                <td>Venue</td>
+                                <td>{{ event.location }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Date</td>
+                                <td>{{ event.event_date.strftime('%b-%d-%Y') }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Time</td>
+                                <td>{{ event.event_date.strftime('%I:%M %p') }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Organizer</td>
+                                <td>{{ event.created_by }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Seats</td>
+                                <td>{{ event.event_seats }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Price</td>
+                                <td>${{ event.event_price }}</td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

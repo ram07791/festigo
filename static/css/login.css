@@ -1,0 +1,236 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+
+body{
+height:100vh;
+background:url("../images/loginbg1.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+/* GLASS BACKGROUND LAYER */
+
+body::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+/* SAME BACKGROUND IMAGE */
+background:url("../images/loginbg1.jpeg");
+background-size:cover;
+background-position:center;
+
+/* GLASS EFFECT */
+filter: blur(10px) brightness(0.7);
+
+/* KEEP IT BEHIND CONTENT */
+z-index:0;
+}
+
+/* ENSURE CONTENT STAYS ABOVE */
+
+.login-wrapper{
+padding-left:120px;
+position:relative;
+z-index:1;
+}
+
+
+/* TICKET CARD (GLASS EFFECT ADDED) */
+
+.ticket{
+width:360px;
+
+/* GLASS EFFECT */
+background: rgba(255, 255, 255, 0.12);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+
+border-radius:12px;
+position:relative;
+padding-bottom:40px;
+
+/* SOFT GLASS BORDER */
+border:1px solid rgba(255,255,255,0.2);
+
+/* SOFT SHADOW */
+box-shadow:0 8px 32px rgba(0,0,0,0.25);
+}
+
+/* HEADER */
+
+.ticket-header{
+text-align:center;
+padding:40px 20px 10px 20px;
+}
+
+.ticket-header h1{
+font-size:36px;
+font-weight:bold;
+color:white; /* better contrast on glass */
+}
+
+/* DASHED DIVIDER */
+
+.ticket-divider{
+border-top:2px dashed rgba(255,255,255,0.5);
+margin:10px 40px 30px 40px;
+}
+
+/* BODY */
+
+.ticket-body{
+padding:0 40px;
+}
+
+.ticket-body h2{
+margin-bottom:20px;
+color:white;
+}
+
+/* LABEL */
+
+.ticket-body label{
+display:block;
+font-size:14px;
+color:#ddd;
+margin-bottom:6px;
+}
+
+/* INPUT */
+
+.ticket-body input{
+width:100%;
+padding:10px;
+
+/* GLASS INPUT */
+background: rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+
+border-radius:6px;
+margin-bottom:18px;
+outline:none;
+}
+
+/* INPUT PLACEHOLDER */
+
+.ticket-body input::placeholder{
+color:#eee;
+}
+
+/* DROPDOWN */
+
+.ticket-body select{
+width:100%;
+padding:10px;
+
+background: rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+
+border-radius:6px;
+margin-bottom:18px;
+
+font-size:14px;
+}
+
+/* FORGOT PASSWORD */
+
+.forgot{
+text-align:right;
+margin-top:-10px;
+margin-bottom:20px;
+}
+
+.forgot a{
+font-size:12px;
+color:#eee;
+text-decoration:none;
+}
+
+/* BUTTON */
+
+.ticket-body button{
+width:100%;
+padding:12px;
+
+/* GLASS BUTTON */
+background: rgba(240, 90, 55, 0.8);
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+margin-bottom:20px;
+transition:0.3s;
+}
+
+.ticket-body button:hover{
+background: rgb(240, 90, 55);
+}
+
+/* SIGNUP */
+
+.signup{
+text-align:center;
+font-size:14px;
+color:#ddd;
+}
+
+.signup a{
+color:#ff9ecb;
+text-decoration:none;
+font-weight:600;
+}
+
+/* REGISTER CARD SIZE (UNCHANGED STRUCTURE) */
+
+.register-ticket{
+width:330px;
+padding-bottom:25px;
+}
+
+.register-ticket .ticket-body{
+padding:0 30px;
+}
+
+.register-ticket input,
+.register-ticket select{
+padding:8px;
+margin-bottom:12px;
+}
+
+/* FLASH MESSAGES */
+
+.flash-text{
+margin-top:10px;
+font-size:14px;
+font-weight:500;
+text-align:center;
+}
+
+/* ERROR MESSAGE */
+
+.flash-error{
+color:#ff6b6b;
+}
+
+/* SUCCESS MESSAGE */
+
+.flash-success{
+color:#7CFC9A;
+}

@@ -1,0 +1,192 @@
+/* ===== PAGE BACKGROUND ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),url("../images/booking-bg.png") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* WRAPPER */
+.book-wrapper {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+/* CARD (GLASS EFFECT) */
+.book-card {
+    width: 650px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    color: #e5e7eb;
+}
+
+/* HEADING */
+.book-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* EVENT INFO */
+/* EVENT INFO BOX */
+.event-info {
+    background: rgba(74, 144, 226, 0.08); /* blue glass */
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(74,144,226,0.25);
+    border-radius: 12px;
+
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+/* TEXT */
+.event-info p {
+    margin: 8px 0;
+    font-size: 14px;
+
+    color: #9fbcd3; /* value color */
+}
+
+/* LABELS */
+.event-info b {
+    color: #4A90E2; /* accent */
+    font-weight: 600;
+}
+
+/* VALUES */
+.event-info span {
+    color: #7fa1b8;
+}
+
+/* FORM */
+form {
+    margin-top: 20px;
+}
+
+/* SELECT */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 10px;
+
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+
+/* BUTTON */
+.confirm-btn {
+    width: 100%;
+    padding: 12px;
+
+    /* SAME STYLE AS SELECT */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.confirm-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}   
+
+/* ========================= */
+/* MULTI-TICKET */
+/* ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.ticket-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* TICKET BOX */
+.ticket-person {
+    border: 1px solid rgba(255,255,255,0.2);
+
+    padding: 18px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* TITLE */
+.ticket-person h4 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* FIX DROPDOWN OPTIONS */
+select option {
+    background: #2c5364;   /* dark background */
+    color: #ffffff;        /* white text */
+}
+
+/* LABEL */
+.ticket-person label {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+/* INPUT SPACING */
+.ticket-person input,
+.ticket-person select {
+    margin-bottom: 8px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .book-card {
+        width: 90%;
+    }
+
+    .ticket-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

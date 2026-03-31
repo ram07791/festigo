@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+</head>
+<body>
+<div class="login-wrapper">
+<div class="ticket">
+<div class="ticket-header">
+<h1>Festigo</h1>
+</div>
+<div class="ticket-divider"></div>
+<div class="ticket-body">
+<h2>Login</h2>
+<form method="POST">
+<label>Username</label>
+<input type="text" name="username" required>
+<label>Password</label>
+<input type="password" name="password" required>
+<div class="forgot">
+<a href="#">Forgot Password?</a>
+</div>
+<button type="submit">Log In</button>
+</form>
+<p class="register-link">Don't have an account?
+<a href="/register" style="color:rgb(240, 90, 55);; text-decoration:underline; font-weight:400;">
+    Register here
+</a>
+</p>
+<!-- FLASH MESSAGE BELOW BUTTON -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<p class="flash-text flash-{{ category }}">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}

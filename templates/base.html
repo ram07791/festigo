@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festigo</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo"> 
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Festigo Logo"> 
+        <span>Festigo</span> 
+    </div> 
+    <nav> 
+        <ul class="nav-links"> 
+            <li><a href="/">Home</a> </li> 
+            <li><a href="/overview">About us</a>
+            </li> <li><a href="/schedule">Schedule</a></li> 
+            <li><a href="/blog">Blog</a></li> 
+            <li><a href="{{ url_for('home') }}#testimonials">Testimonials</a></li>
+            <li><a href="{{ url_for('home') }}#contact">Contact us</a></li> 
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/login">Login</a></li> 
+        </ul> 
+    </nav>
+</header>
+<!-- Hero section block -->
+{% block hero %}{% endblock %}
+
+
+<!-- Page content -->
+{% block content %}{% endblock %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let slides = document.querySelectorAll(".testimonial-slide");
+    let index = 0;
+    function showSlide() {
+        slides.forEach(slide => slide.classList.remove("active"));
+        index++;
+        if(index >= slides.length) index = 0;
+        slides[index].classList.add("active");
+    }
+    if(slides.length > 0) {
+        slides[0].classList.add("active");
+        setInterval(showSlide, 3000);
+    }
+});
+</script>
+</body>
+</html>

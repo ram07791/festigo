@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_review.css') }}">
+
+<div class="review-wrapper">
+
+    <div class="review-card">
+
+        <h2>Edit Review</h2>
+
+        <form method="POST">
+
+            <!-- REVIEW TEXT (PRE-FILLED) -->
+            <textarea name="review" required>{{ blog.description }}</textarea>
+
+            <!-- BUTTON -->
+            <button type="submit">Update Review</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

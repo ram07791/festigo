@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<div class="dashboard-wrapper">
+    <div class="dashboard-card">
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <h2>Welcome, {{ username }} 👋</h2>
+        </div>
+        <!-- PROFILE HEADER -->
+        <div class="profile-header">
+            <img src="{{ url_for('static', filename='images/profile.jpeg') }}" class="profile-pic">
+            <div class="profile-info">
+                <h3>{{ username }}</h3>
+                <p>{{ role }}</p>
+            </div>
+            
+        </div>
+        <!-- QUICK ACTIONS -->
+        <div class="action-buttons">
+            <a href="/schedule" class="dashboard-btn"> Browse Events </a>
+            {% if role == "organizer" %}
+                <a href="/add_event" class="dashboard-btn organizer-btn"> Create Event </a>
+                <!-- NEW BUTTON -->
+                <a href="/my_events" class="dashboard-btn myevents-btn">
+                    My Events
+                </a>
+            {% endif %}
+            <a href="/logout" class="dashboard-btn logout-btn"> Logout </a>
+        </div>
+        <!-- OPTIONAL INFO SECTION -->
+        <div class="info-box">
+            <h4>Your Activity</h4>
+            <p>Explore events and Manage bookings</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
